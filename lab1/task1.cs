@@ -1,11 +1,14 @@
-﻿using System.Text;
+using System.Text;
 
 var output = 25;
+
 var wordCount = 0;
-string[] stopwords = new string[] {"i", "he", "she", "it", "they", "them", "you", "at", "a", "that", "for"};
+string[] stopwords = new string[] {"i", "he", "she", "it", "they", "them", "you", "at", "a", "that", "for", "in"};
 var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
 string text = " " + new StreamReader("C:\\Users\\Nestor\\Desktop\\lab1\\task1input.txt", Encoding.Default).ReadToEnd() + "Σ";
+
+
 
 var temp = "";
 var i = 0;
@@ -68,6 +71,7 @@ else if (text[i] != ' ')
 else if (text[i] == ' ')
 {
     i++;
+
     int countS = 0;
 stopWordsCheckLoop:
     if (temp == stopwords[countS])
@@ -98,7 +102,9 @@ wordCount = countA;
 
 string[] countedWords = new string[wordCount];
 int[] counters = new int[wordCount];
+
 i = 0;
+
 temp = "";
 
 
@@ -153,7 +159,7 @@ loopOneEnd:
 
 
 /*
-//^same without goto (template)
+//^same without goto
 int countW=0;
 for(i=0; i<=wordCount; i++){
     for(int j=i+1; j<=wordCount; j++){
@@ -219,7 +225,7 @@ if (i < output && i<sortedCountedWords.Count())
 }
 
 /*
-//^same without goto (template)
+//^same without goto
 Console.WriteLine("\n");
 for (int f = 0; f < wordCount; f++)
 {
